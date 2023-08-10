@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
 
-export const ConnectDb = async () => {
- 
- const {connection}=await mongoose.connect(process.env.MONGO_URI);
- console.log(`Databse is connected at ${connection.host}`);
- 
-}
+export const connectDB = () => {
+    mongoose
+        .connect(process.env.MONGO_URI, {
+            dbName: "RazorPay_integration",
+        })
+        .then((c) => console.log(`Database Connected with ${c.connection.host}`))
+        .catch((e) => console.log(e));
+};
 
 
 
