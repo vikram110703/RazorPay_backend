@@ -17,4 +17,10 @@ app.get('/api/getkey', (req, resp) => {
         key: process.env.RazorPay_Api_Key
     });
 });
+app.get('/*',(req,resp)=>{
+    resp.status(200).json({
+        success:true,
+        message:"Backend is working perfectlly"
+    });
+})
 
